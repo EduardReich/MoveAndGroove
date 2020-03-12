@@ -1,0 +1,28 @@
+<%= form_with model: @activity, local: true do |form| %>
+
+  <% if @activity.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@activity.errors.count, "error") %> prohibited
+        this Activity from being saved:
+      </h2>
+      <ul>
+        <% @activity.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, type: "text", required: true  %>
+  </div>
+
+
+  <p>
+    <%= form.submit class: 'btn btn-outline-dark'%>
+  </p>
+
+<% end %>
+  

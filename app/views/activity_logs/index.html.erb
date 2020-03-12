@@ -1,0 +1,34 @@
+<main class="flex-fill">
+  <div class="container text-center">  
+    <h1 class="m-3">Your Activity Logs</h1>
+
+    <%= link_to 'New log', new_activity_log_path, class: 'btn btn-outline-dark m-3' %>
+
+    <div id="activity_log_table">
+      <table class="table table-dark table-hover table-bordered">
+        <thead>
+            <tr>
+              <th scope="col">Activity</th>
+              <th scope="col">Date</th>
+              <th scope="col">Duration</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+      <% @activity_logs.each do |log| %>
+        <tbody>
+          <tr>
+            <td th scope="row"><%= Activity.find(log.activity_id).title %></td>
+            <td th scope="row"><%= log.date %></td>
+            <td th scope="row"><%= log.duration %></td>
+            <td th scope="row"><%= link_to 'Edit', edit_activity_log_path(log) %></td>
+            <td th scope="row"><%= link_to 'Delete', activity_log_path(log),
+                    method: :delete,
+                    data: { confirm: 'Are you sure you want to delete this record?'} %></td>
+          </tr>
+        </tbody>
+      <% end %>
+      </table>
+    </div>
+  </div>  
+</main>

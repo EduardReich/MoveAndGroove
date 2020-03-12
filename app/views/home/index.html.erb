@@ -1,0 +1,40 @@
+<main class="flex-fill">
+  <div class="jumbotron text-center">
+    <h1 class="display-5">
+      <% if user_signed_in? %>
+        Welcome back <%= current_user.email %>
+      <% else %>
+        Welcome to Move and Groove!
+      <% end %>  
+    </h1>
+    <p class="lead">
+      <% if user_signed_in? %>
+        Check your activity <%= link_to 'Logs', {controller: 'activity_logs', action: 'index'}, class: 'btn btn-outline-dark' %>
+      <% else %>
+        This app helps you to track your activity.
+      <% end %>  
+    </p>
+  </div>
+
+  <div class="container-fluid d-flex justify-content-center mb-3">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="4000" >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/assets/1.jpeg" class="d-block img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/2.jpeg" class="d-block img-fluid" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/assets/3.jpeg" class="d-block img-fluid" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if admin_signed_in? %>
+    <%= link_to 'Activities', {controller: 'activities', action: 'index'}, class: 'btn btn-primary' %>
+  <% else %>
+    <%= %>
+  <%end%>
+</main>

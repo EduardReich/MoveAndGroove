@@ -1,0 +1,10 @@
+<main class="flex-fill">
+  <div class="container text-center">
+    <p>
+      <h1><%= @activity.title %></h1>
+    </p>
+
+    <%= link_to 'Edit', edit_activity_path(@activity), :class => "btn btn-dark"%>
+    <%= link_to 'Back', activities_path, :class => "btn btn-dark"%>
+  </div>  
+</main>

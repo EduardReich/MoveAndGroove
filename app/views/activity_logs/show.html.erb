@@ -1,0 +1,27 @@
+<main class="flex-fill">  
+  <div class="container text-center mt-5">
+    <p>
+      <strong>Activity:</strong>
+    </p>
+
+
+    <p>
+      <strong>User:</strong>
+      <%= User.find(@activity_log.user_id).email %>
+    </p>
+    <p>
+      <strong>Date:</strong>
+      <%= @activity_log.date %>
+    </p>
+    <p>
+      <strong>Duration:</strong>
+      <%= @activity_log.duration %>
+    </p>
+    <p>
+      <strong>Activity:</strong>
+      <%= Activity.find(@activity_log.activity_id).title %>
+    </p>
+
+    <%= link_to 'Back', activity_logs_path, class: 'btn btn-dark' %>
+  <div class="container text-center">  
+</main>
